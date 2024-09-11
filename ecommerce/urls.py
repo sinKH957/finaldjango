@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 
 from ecommerce import views
 
@@ -9,5 +9,7 @@ urlpatterns = [
     path('checkout/', views.checkout, name='checkout'),
 
     path('update_item/', views.updateItem, name='update_item'),
+
+    path('login_user/', views.login_view, name='login' , ),
 
 ]

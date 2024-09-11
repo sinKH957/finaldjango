@@ -1,11 +1,25 @@
 import json
 
-from django.shortcuts import render
-from .models import Product, Order, OrderItem
+from django import contrib
+from django.shortcuts import render, redirect
+from .models import Product, Order, OrderItem, Customer
 from django.http import JsonResponse
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 
 # Create your views here.
+def login_view(request, massages=None):
+    if request.method == "POST":
+
+        Customer.name = request.POST["username"]
+        Customer.password = request.POST["password"]
+        user = authenticate(request, username=Customer.name, password=Customer.password)
+        if user is not None:
+            login(request, user)
+            return redirect('store')
+    else:
+        return render(request, 'store/login.html', {})
 
 
 def store(request):

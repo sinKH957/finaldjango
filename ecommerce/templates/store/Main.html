@@ -30,7 +30,7 @@
 	 
 	    </ul>
 	    <div class="form-inline my-2 my-lg-0">
-	     	<a href="#" class="btn btn-warning">Login</a>
+	     	<a href="{% url 'login' %}" class="btn btn-warning">Login</a>
 	     	
 	     	<a href="{% url 'cart' %}">
 	    		<img  id="cart-icon" src="{% static 'img/6+cart.png' %}" alt="">
@@ -56,28 +56,28 @@
 
 
 
-    <script type="text/javascript">
-        var user = '{{ request.user }}'
-        function getToken(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-            const cookie = cookies[i].trim();
-            // Does this cookie string begin with the name we want?
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
-            }
-        }
-    }
-        return cookieValue;
-
-        const csrftoken = getToken('csrftoken');
-
-
-        }
-    </script>
+{#    <script type="text/javascript">#}
+{#        var user = '{{ request.user }}'#}
+{#        function getToken(name) {#}
+{#            let cookieValue = null;#}
+{#            if (document.cookie && document.cookie !== '') {#}
+{#                const cookies = document.cookie.split(';');#}
+{#            for (let i = 0; i < cookies.length; i++) {#}
+{#            const cookie = cookies[i].trim();#}
+{#            // Does this cookie string begin with the name we want?#}
+{#            if (cookie.substring(0, name.length + 1) === (name + '=')) {#}
+{#                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));#}
+{#                break;#}
+{#            }#}
+{#        }#}
+{#    }#}
+{#        return cookieValue;#}
+{##}
+{#        const csrftoken = getToken('csrftoken');#}
+{##}
+{##}
+{#        }#}
+{#    </script>#}
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 
