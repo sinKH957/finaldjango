@@ -1,7 +1,8 @@
 import json
 
 from django import contrib
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+
 from .models import Product, Order, OrderItem, Customer
 from django.http import JsonResponse
 from django.contrib.auth import authenticate, login, logout
@@ -9,6 +10,11 @@ from django.contrib import messages
 
 
 # Create your views here.
+def productview(request , product_id , product_name):
+    product = Product.objects.get(id=product_id , name=product_name )
+    return render(request, 'store/productview.html', {'product': product})
+
+
 def login_view(request, massages=None):
     if request.method == "POST":
 

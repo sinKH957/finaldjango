@@ -12,4 +12,5 @@ urlpatterns = [
 
     path('login_user/', views.login_view, name='login' , ),
 
+    path('productview/<int:product_id>/<str:product_name>', views.productview, name='productview'),
 ]
